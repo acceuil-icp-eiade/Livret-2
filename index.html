@@ -1,415 +1,95 @@
-
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<link rel="manifest" href="manifest.json">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Accueil IADE - ICP</title>
 
 <link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
 
 <meta name="theme-color" content="#1e3a8a">
 <link rel="apple-touch-icon" href="logo.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Accueil IADE - ICP</title>
-
 
 </head>
 
 <body>
-<div class="wrapper">
+
+<!-- SPLASH -->
+<div id="splash">
+  <img src="logo.png">
+  <h1>Accueil Étudiants IADE</h1>
+  <p>Institut Cœur Poumon</p>
+</div>
+
+<!-- HERO -->
 <section class="hero">
-<div class="overlay">
-<h1>Bienvenue au bloc opératoire</h1>
-<p>Votre parcours IADE commence ici</p>
+  <div class="overlay">
+    <h1>Bienvenue au bloc opératoire</h1>
+    <p>Votre parcours IADE commence ici</p>
 
-<div class="buttons">
-<a href="#" onclick="openLogin()" class="btn btn-light">
-🌍 Accès guide étudiant
-</a>
-
-
-<a href="TON-LIEN-SHAREPOINT" target="_blank" class="btn btn-dark">
-🔐 Accès contenu complet
-</a>
-</div>
-
-<p class="info">
-Certains contenus nécessitent un accès au réseau hospitalier
-</p>
-</div>
+    <div class="buttons">
+      <button class="btn btn-light" onclick="openLogin()">Accès guide étudiant</button>
+      <a class="btn btn-dark" href="#">Accès contenu complet</a>
+    </div>
+  </div>
 </section>
 
-
-<!-- 🔐 PAGE DE CONNEXION -->
-
-<div id="loginModal" class="login-modal">
-<div class="login-box">
-<h2>🔐 Accès étudiant</h2>
-<input type="password" id="password" placeholder="Mot de passe">
-<button onclick="checkPassword()">
-Continuer
-</button>
-<button onclick="closeLogin()">
-Annuler
-</button>
-<p id="error"></p>
-
+<!-- LOGIN -->
+<div id="loginModal" class="modal">
+  <div class="box">
+    <h2>Accès étudiant</h2>
+    <input id="password" type="password" placeholder="Mot de passe">
+    <button onclick="checkPassword()">Continuer</button>
+    <button onclick="closeLogin()">Annuler</button>
+    <p id="error"></p>
+  </div>
 </div>
-</div>
-
 
 <!-- DISCLAIMER -->
-<div id="disclaimer" class="disclaimer-overlay">
-<div class="disclaimer-box">
-<h2>⚠️ Avertissement</h2>
+<div id="disclaimer" class="overlayModal">
+  <div class="box">
+    <h2>Avertissement</h2>
+    <p>Site pédagogique IADE.</p>
 
-<p>
-Ce site est un support pédagogique personnel destiné aux étudiants IADE.
-Il ne remplace en aucun cas les protocoles officiels de notre établissement.
-</p>
-
-<p>
-Les informations présentées sont générales et doivent être adaptées
-aux pratiques locales et aux recommandations en vigueur.
-</p>
-
-<p>
-Ce site est non officiel et n’engage pas le CHU de Lille.</p>
-<p>
-En cliquant sur Continuer, vous reconnaissez avoir pris connaissance de cet avertissement.
-</p>
-
-<button onclick="acceptDisclaimer()">✅ Continuer</button>
-</div>
-</div>
-</div>
-<!-- 🔓 CONTENU -->
-
-<div class="bottom-menu">
-<a href="#documents">📑</a>
-<a href="#plan">🗺</a>
-<a href="#visite">🎥</a>
-<a href="#retour">📝</a>
-<a href="pdf/telephones.pdf">☎️</a>
+    <button onclick="acceptDisclaimer()">Continuer</button>
+  </div>
 </div>
 
+<!-- CONTENU -->
 <div id="content" class="hidden">
 
-<div class="container">
+  <div class="card">
+    <h2>👋 Bienvenue</h2>
+    <p>Contenu pédagogique IADE.</p>
+  </div>
 
-<div class="card">
-<h2>👋 Message de bienvenue</h2>
-<p>
-Toute l’équipe du bloc opératoire de l’Institut Cœur Poumon est ravie de vous accueillir.
- </p>
-<p>
-Nous savons que les débuts peuvent être impressionnants — ici, vous êtes là pour apprendre, progresser et poser toutes vos questions...
-</p>
-<p>
-Votre bien être, votre épanouissement professionnel et votre autonomisation sont au cœur de notre accompagnement.
-</p>
-<p><strong>👉 Il n’y a pas de "mauvaises questions".</strong></p>
-</div>
+  <!-- 🔎 CONTACTS (SAFE SEARCH) -->
+  <div class="card">
+    <h2>☎️ Contacts</h2>
 
-<div class="cards-row">
+    <input id="searchContacts" placeholder="Rechercher un contact...">
 
-<div class="card clickable" onclick="openPopup('popupJour')">
-<h2>📍 Votre premier jour ➡️ </h2>
-</div>
-
-<!-- Popup Votre premier jour -->
-
-<div id="popupJour" class="popup">
-<div class="popup-content">
-<button class="close-btn" onclick="closePopup('popupJour')">✖️</button>
-
-<h2>📍 Votre premier jour </h2>
- <ul>
-<li><strong>Heure :</strong> RDV à 8h</li>
-<li><strong>Lieu :</strong> la salle de réveil du bloc</li>
-<li><strong>Tenue :</strong> Pyjama de bloc, calot jetable, masque, sabots dédiés</li>
-<li><strong>À prévoir :</strong> Badge, feuilles d'évaluation de stage</li>
-<li>une bannette <strong>"étudiants IADE "</strong> vous permettra de déposer vos fiches d'horaire ainsi que vos rapports de stage</li>
-<li>vous y trouverez une <strong>fiche de suivi</strong> à remplir tout au long du stage</li>
-<li>une date de <strong>bilan de demi-stage</strong> sera fixée pour chaque Étudiant</li>
-</ul>
-</div>
-</div>
-
-<!-- Carte -->
-<div class="card clickable" onclick="openPopup('popupVie')">
-<h2>🏥 Vie pratique ➡️ </h2>
-</div>
-
-<!-- Popup -->
-<div id="popupVie" class="popup">
-<div class="popup-content">
-<button class="close-btn" onclick="closePopup('popupVie')">✖️</button>
-<h2>🏥 Vie pratique </h2>
-
-<ul>
-<p><span class="rouge">À VOTRE DISPOSITION</span></p>
-
-<h3>👕 Vestiaires</h3>
-<li>👉 Pensez à prévoir un cadenas pour votre casier.</li>
-<li>👉 Merci de ne pas y laisser d’objets de valeur.</li>
-<h3>🧥 Casiers</h3>
-<li>Des casiers sont à votre disposition en SSPI.</li>
-<h3>☕ Salle de pause</h3>
-<li>Une salle de pause est à votre disposition.</li>
-<li>👉 Espace de repos réservé au café.</li>
-<h3>🍽️ restauration</h3>
-<li>La salle à manger est située au sein du bloc.</li>
-<li>le self est situé au niveau-2.</li>
- <li>le relais H est situé au niveau 0.</li>
-<li>👉 Possibilité de réchauffer vos repas sur place.
-</li>
-</ul>
-</div>
-</div>
-
-</div>
-<div>
-<div class="card" id="plan">
-
-<h3>🗺️ Plan du bloc opératoire</h3>
-<p>Consultez le plan pour vous repérer facilement dans le service.</p>
-<a href="pdf/plan2.pdf" download>
-✅️ Télécharger le plan
-</a>
-<a href="pdf/plan2.pdf" target="_blank" class="btn-pdf">
-📄 Ouvrir le plan (plein écran)
-</a>
-<p class="hint">👉 Appuyez sur retour pour revenir au site</p>
-</div>
-</div>
-<div>
-<div class="card" id="visite">
-<h2>🎥 Visite du service</h2>
-<i>disponible prochainement</i>
-
-<button id="videoBtn" class="video-btn" onclick="toggleVideo()">
-▶️ Voir la visite du bloc
-</button>
-<div id="videoContainer" class="video hidden">
-
-<iframe id="videoFrame"
-src="https://www.youtube.com/embed/TON_ID_VIDEO?autoplay=1"
-frameborder="0"
-allow="fullscreen; autoplay"
-allowfullscreen>
-</iframe>
-</div>
-</div>
-</div>
-<div>
-<!-- Carte -->
-<div class="card clickable" onclick="openPopup('popuporganigramme')">
-<h2>🩺 Organigramme du service</h2>
-</div>
-
-<!-- Popup -->
-
-<div id="popuporganigramme" class="popup">
-<div class="popup-content">
-<button class="close-btn" onclick="closePopup('popuporganigramme')">✖️</button>
-
-<h2>🩺 Organigramme </h2>
-
-<ul>
-<li><strong>ANESTHÉSIE:</strong></li>
-<p>Chef de service: Dr Desbordes</p>
-<p>Responsable réanimation: Pr Moussa</p>
-<p>Responsable SIPO: Dr Robin</p> <li><strong>BLOC OPÉRATOIRE:</strong></li>
-<p>Chirurgie cardiaque: Pr Vincentelli </p>
-<p>Chirurgie thoracique: Pr Venissac</p>
- <p>Chirurgie Vasculaire: Pr Sobocinski</p>
- <p>Pneumologie: Dr Fournier </p>
-<li><strong>PTI:</strong></li>
-<p>Cardiologie: Pr Lemesle</p>
-<p>Radiologie: Pr Pontana </p>
-
-<li> Vous serez encadré(e)s par une équipe d’IADE, de médecins anesthésistes et d’IDE expérimenté(e)s. </li>
-</ul>
-</div>
-</div>
-</div>
-<div>
-<!-- Carte -->
-<div class="card clickable" onclick="openPopup('popupReferents')">
-<h2>♻️ Référents</h2>
-</div>
-
-<!-- Popup -->
-<div id="popupReferents" class="popup">
-<div class="popup-content">
-<button class="close-btn" onclick="closePopup('popupReferents')">✖️</button>
-
-<h2> ♻️ Référents</h2>
-<ul>
-<li><strong>cadre supérieur:</strong><p></p> Mme Reumaux Laurence </li><p></p>
-<li><strong>IADE Référente de soins:</strong><p></p> Mme Hennache Audrey </li><p></p>
-<li><strong>Référents IADE :</strong><p></p>
-<p>Mme Tosolini Karen</p></li>
-<p>Mme Ait Ben Said Sabah</p>
-<p> Mr Lavergne Sebastien</p><p>Mr Molinaro Camille</p><p></p>
-<li><strong>Référent SSPI:</strong><p></p>Mme Bichelberger Eve</li>
-</ul>
-</div>
-</div>
-<div class="card">
-<div>
-<a class="btn" href="pdf/telephones.pdf" target="_blank">
-☎️ Telephones
-</a>
-</div>
-</div>
-
-<div class="card" id="documents">
-<h2>📄 Accès rapide aux documents</h2><i>(source principale RFE SFAR)</i>
-<p class="hint">👉 Appuyez sur retour pour revenir au site</p>
-
-<div class="btn" onclick="toggleMenu('chirMenu')">
-
-✅ présentation des chirurgies
-</div>
-
-
-<div id="chirMenu" class="submenu">
- <a class="btn menu" href="pdf/COEUR.pdf" target="_blank"> 🫀 À cœur ouvert</a>
-<a class="btn menu" href="pdf/CEC.pdf" target="_blank"> 🔧 ⚙️La CEC</a>
-<a class="btn menu" href="pdf/CARDIOLOGIE1.pdf" target="_blank">❤️ interventionnelle</a>
-<a class="btn menu"
-href="pdf/VASCULAIRE.pdf" target="_blank">
-📕 vasculaire</a>
- <a class="btn menu"
-href="pdf/anatomiepulmonaire.pdf" target="_blank">
-🩻 thoracique</a>
+    <div id="contactList">
+      <div class="contact">Dr Martin</div>
+      <div class="contact">Dr Dupont</div>
+      <div class="contact">IADE Sophie</div>
+      <div class="contact">Cadre Bloc</div>
+    </div>
+  </div>
 
 </div>
 
-
-
-<div class="btn" onclick="toggleMenu('specialitesMenu')">
-📂 Anesthésie par spécialité
+<!-- MENU -->
+<div class="bottom-menu">
+  <div class="menu-item active">📄</div>
+  <div class="menu-item">🗺️</div>
+  <div class="menu-item">🎥</div>
+  <div class="menu-item">📝</div>
+  <div class="menu-item">☎️</div>
 </div>
 
-<div id="specialitesMenu" class="submenu">
-
-<div class="fiche">
-<a href="pdf/CHIRURGIE_CARDIAQUE.pdf" target="_blank">
-❤️ Chirurgie cardiaque
-</a>
-</div>
-
-<div class="fiche">
-<a href="pdf/chirtho.pdf" target="_blank">
-🫁 Chirurgie thoracique
-</a>
-</div>
-<div class="fiche">
-<a href="pdf/endoscopie bronchique.pdf"
-target="_blank">
-🩻 médecine endobronchique
-</a>
-</div>
-
-<div class="fiche">
-<a href="pdf/CHIRURGIE_VASCULAIRE.pdf" target="_blank">
-🩸 Chirurgie vasculaire
-</a>
-</div>
-
-<div class="fiche">
-<a href="pdf/TAVI.pdf" target="_blank">
-💉 Cardiologie interventionnelle
-</a>
-</div>
-</div>
-
-
-<div class="btn urgence" onclick="toggleMenu('urgencesMenu')">
-🚨 Protocoles d'urgence
-</div>
-
-<div id="urgencesMenu" class="submenu">
-
-<div class="fiche">
-<a href="pdf/hemorragie.pdf" target="_blank">
-🩸 Hémorragie
-</a>
-</div>
-
-<div class="fiche">
-<a href="pdf/arret.pdf" target="_blank">
-❤️ Arrêt cardiaque
-</a>
-</div>
-
-<div class="fiche">
-<a href="pdf/choc_anaphylactique.pdf" target="_blank">
-⚠️ Choc anaphylactique
-</a>
-</div>
-
-<div class="fiche">
-<a href="pdf/intox al.pdf" target="_blank">
-💉 intoxication aux AL
-</a>
-</div>
-<div class="fiche">
-<a href="pdf/detresse_respiratoire.pdf" target="_blank">
-🫁 Détresse respiratoire
-</a>
-</div>
-
-<div class="fiche">
-<a
-href="pdf/hyperthermie_maligne.pdf" target="_blank">
-🌡hyperthermie maligne
-</a>
-</div>
-
-
-</div>
-<a class="btn"
-href="pdf/Antibioprophylaxie_ICP.pdf"
-target="_blank">
-💊 Antibioprophylaxie
-</a>
-<a class="btn bilan" href="pdf/Bilandemistage.pdf" target="_blank">
-✒️ bilan de demi-stage
-</a>
-</div>
-</div>
-</div>
-
-<div class="card">
-<h2>💬 Petit mot pour vous</h2>
-<p>
-Le bloc est un environnement exigeant, mais aussi passionnant.
- Prenez le temps d’observer, de comprendre… et surtout de vous faire confiance.
-</p>
-<p><strong>On est là pour vous accompagner 🤝</strong></p>
-</div>
-
-<div class="card" id="retour">
-<h2>📝 Retour de stage</h2>
-
-<p>
-Votre avis est essentiel pour améliorer l’accueil des étudiants.
-</p><p>Ce questionnaire est anonyme.</p>
-
-<a class="btn" href="https://forms.gle/4ATLvfYK83cmkXiN7" target="_blank">
-📝 Donner mon avis
-</a>
-</div>
-<footer>
-Institut Cœur Poumon – Bloc opératoire
-</footer>
 <script src="script.js"></script>
-
 </body>
-
-
+</html>
