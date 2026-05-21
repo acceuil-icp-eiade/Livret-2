@@ -242,3 +242,12 @@ function showFeedback(isCorrect, explanation) {
     </p>
   `;
 }
+continueBtn.addEventListener("click", () => {
+
+  feedbackPopup.style.display = "none";
+
+  currentQuestion++;
+
+  showQuestion();
+
+});
