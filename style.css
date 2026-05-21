@@ -1536,3 +1536,67 @@ white-space: pre-line;
 
 }
 
+/* POPUP FEEDBACK */
+
+.feedback-popup {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.45);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+
+  backdrop-filter: blur(6px);
+}
+
+.feedback-box {
+
+  width: 90%;
+  max-width: 420px;
+
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 30px;
+
+  text-align: center;
+
+  animation: popupFade 0.3s ease;
+}
+
+@keyframes popupFade {
+
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+}
+
+#continueBtn {
+
+  margin-top: 25px;
+
+  padding: 14px 24px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: #2563eb;
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
