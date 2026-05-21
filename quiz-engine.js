@@ -50,8 +50,7 @@ button.textContent = answer.text;
 button.addEventListener("click", () => selectAnswer(button, answer));
 
 answersEl.appendChild(button);
-
-});
+   resetUI();
 
 }
 
@@ -151,3 +150,12 @@ window.addEventListener("DOMContentLoaded", () => {
   loadQuestion();
 });
 
+/*==========≈============
+   reset
+   =====≈===============*/
+
+function resetUI() {
+feedbackEl.textContent = "";
+correctEl.innerHTML = "";
+answersEl.innerHTML = "";
+}
