@@ -115,15 +115,27 @@ showFinalScreen();
 ========================= */
 function showFinalScreen() {
 
-// Stop affichage question
+// Affichage fin
 stepEl.textContent = "🏁 Quiz terminé";
 patientEl.textContent = "";
 
-// Nettoyage zone réponses
+// Nettoyage réponses
 answersEl.innerHTML = "";
 
-// Nettoyage feedback
-feedbackEl.textContent = "";
+// Message final
+feedbackEl.innerHTML = `
+🎉 Bravo !<br><br>
+Votre score final est :
+<strong>${score} / ${quizData.length}</strong>
+
+<p style="margin-top:20px; line-height:1.7;">
+✅ Langage positif<br>
+✅ Sécurité<br>
+✅ Suggestions indirectes
+</p>
+`;
+
+// Nettoyage correction
 correctEl.innerHTML = "";
 
 // Progression vide
@@ -132,29 +144,12 @@ progressEl.textContent = "";
 // Masquer bouton suivant
 nextBtn.style.display = "none";
 
-// Afficher score final
+// Mettre score à jour
 scoreEl.textContent = score;
 
-// 👉 Message final dans la zone de feedback
-feedbackEl.textContent =
-`🎉 Bravo ! Ton score final est ${score} / ${quizData.length}`;
-
-// 👉 Afficher bouton rejouer
+// Afficher bouton rejouer
 restartBtn.style.display = "inline-block";
 }
-restartBtn.addEventListener("click", () => {
-
-currentQuestion = 0;
-score = 0;
-
-scoreEl.textContent = "0";
-feedbackEl.textContent = "";
-correctEl.innerHTML = "";
-
-restartBtn.style.display = "none";
-
-loadQuestion();
-});
 
 /* =========================
    DEMARRAGE
@@ -162,7 +157,21 @@ loadQuestion();
 window.addEventListener("DOMContentLoaded", () => {
   loadQuestion();
 });
+restartBtn.addEventListener("click", () => {
 
+currentQuestion = 0;
+score = 0;
+
+// Reset score affiché
+scoreEl.textContent = "0";
+
+// Masquer bouton rejouer
+restartBtn.style.display = "none";
+
+// Recharger première question
+loadQuestion();
+
+});
 /*==========≈============
    reset
    =====≈===============*/
