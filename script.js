@@ -315,13 +315,17 @@ loadContacts();
 
 function openQuiz() {
 
-document.getElementById("quizPopup").style.display = "flex";
+document
+.getElementById("quizPopup")
+.classList.add("show");
 
 }
 
 function closeQuiz() {
 
-document.getElementById("quizPopup").style.display = "none";
+document
+.getElementById("quizPopup")
+.classList.remove("show");
 
 }
 
