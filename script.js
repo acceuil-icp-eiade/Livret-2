@@ -57,6 +57,7 @@ function openPopup(id) {
   const popup = document.getElementById(id);
   popup.style.display = "flex";
   setTimeout(() => popup.classList.add("show"), 10);
+  document.getElementById("bottom-menu").classList.add("hidden");
 
   document.querySelector(".bottom-menu")?.classList.add("hidden");
 }
@@ -66,7 +67,7 @@ function closePopup(id) {
   popup.classList.remove("show");
 
   setTimeout(() => popup.style.display = "none", 300);
-
+document.getElementById("bottom-menu").classList.remove("hidden");
   document.querySelector(".bottom-menu")?.classList.remove("hidden");
 }
 
