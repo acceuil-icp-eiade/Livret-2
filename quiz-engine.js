@@ -116,7 +116,7 @@ showFinalScreen();
    FIN QUIZ
 ========================= */
 function showFinalScreen() {
-
+stepEl.style.textAlign = "center";
 // Affichage fin
 stepEl.textContent = "🏁 Quiz terminé";
 patientEl.textContent = "";
