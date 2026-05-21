@@ -10,7 +10,7 @@ const patientEl = document.getElementById("patient");
 const answersEl = document.getElementById("answers");
 
 const feedbackEl = document.getElementById("feedback");
-
+const correctEl = document.getElementById("correct");
 const nextBtn = document.getElementById("nextBtn");
 
 const progressEl = document.getElementById("progress");
