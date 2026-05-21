@@ -79,12 +79,14 @@ correctEl.innerHTML = "";
 button.classList.add("wrong");
 
 feedbackEl.textContent = "❌ Mauvaise réponse";
-
 correctEl.innerHTML =
-`✔ Bonne réponse : ${correctAnswer.text}<br><br>
-<strong>Pourquoi :</strong> ${correctAnswer.feedback}`;
-}
+`❓ Pourquoi cette réponse n’est pas idéale :<br><br>
+${answer.feedback}
 
+<br><br>
+
+✔ Bonne réponse :
+<strong>${correctAnswer.text}</strong>`;
 nextBtn.style.display = "inline-block";
 }
 
