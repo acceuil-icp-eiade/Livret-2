@@ -323,18 +323,3 @@ input.focus();
 
 loadContacts();
 
-function openQuiz() {
-document.getElementById("quizPopup").classList.add("show");
-currentQuestion = 0;
-score = 0;
-loadQuestion();
-}
-
-
-function closeQuiz() {
-
-document
-.getElementById("quizPopup")
-.classList.remove("show");
-
-}
