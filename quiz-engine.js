@@ -16,7 +16,7 @@ const nextBtn = document.getElementById("nextBtn");
 const progressEl = document.getElementById("progress");
 
 const scoreEl = document.getElementById("score");
-
+const restartBtn = document.getElementById("restartBtn");
 /* =========================
    AFFICHER QUESTION
 ========================= */
