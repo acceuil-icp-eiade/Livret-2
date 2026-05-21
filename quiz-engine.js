@@ -21,6 +21,7 @@ const feedbackPopup = document.getElementById("feedbackPopup");
 const feedbackTitle = document.getElementById("feedbackTitle");
 const feedbackText = document.getElementById("feedbackText");
 const continueBtn = document.getElementById("continueBtn");
+
 /* =========================
 AFFICHER QUESTION
 ========================= */
@@ -30,9 +31,9 @@ const q = quizData[currentQuestion];
 
 stepEl.textContent = q.step;
 patientEl.textContent = q.patient;
-
 progressEl.textContent =
-Question ${currentQuestion + 1} / ${quizData.length};
+`Question ${currentQuestion + 1} / ${quizData.length}`;
+
 
 // 👉 reset UNE SEULE FOIS ici
 resetUI();
@@ -77,23 +78,16 @@ isCorrect = true;
 } else {
 button.classList.add("wrong");
 }
-
+  
 const explanation = answer.correct
 ? "Bonne réponse 👍"
-:   ${answer.feedback}<br><br>   ✔ Bonne réponse : <strong>${correctAnswer.text}</strong>  ;
+: `${answer.feedback}<br><br>
+✔ Bonne réponse :
+<strong>${correctAnswer.text}</strong>`;
 
 showFeedback(isCorrect, explanation);
 }
-function showFeedback(isCorrect, explanation) {
 
-feedbackTitle.innerHTML = isCorrect
-? "✅ Bonne réponse"
-: "❌ Réponse incorrecte";
-
-feedbackText.innerHTML = explanation;
-
-document.getElementById("feedbackPopup").classList.add("show");
-}
 
 /* =========================
 QUESTION SUIVANTE
@@ -188,9 +182,9 @@ vos techniques de communication hypnotique.
 // Afficher bouton rejouer
 restartBtn.style.display = "inline-block";
 }
-/========≈============
+/*========≈============
 fermeture du popup
-======================/
+======================*/
 continueBtn.addEventListener("click", () => {
 
 document.getElementById("feedbackPopup").classList.remove("show");
@@ -251,14 +245,24 @@ feedbackTitle.innerHTML = "❌ Réponse incorrecte";
 
 feedbackText.innerHTML =   <p style="margin-top:15px; line-height:1.7;">   ${explanation}   </p>  ;
 }
+
 continueBtn.addEventListener("click", () => {
 
 feedbackPopup.style.display = "none";
 
 currentQuestion++;
 
-showQuestion();
+if (currentQuestion < quizData.length) {
+
+loadQuestion();
+
+} else {
+
+showFinalScreen();
+
+}
 
 });
+
 
 
