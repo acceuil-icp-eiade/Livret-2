@@ -116,42 +116,75 @@ showFinalScreen();
    FIN QUIZ
 ========================= */
 function showFinalScreen() {
-stepEl.style.textAlign = "center";
-// Affichage fin
-stepEl.textContent = "🏁 Quiz terminé";
-patientEl.textContent = "";
 
-// Nettoyage réponses
-answersEl.innerHTML = "";
+  // Centrer le titre
+  stepEl.style.textAlign = "center";
 
-// Message final
-feedbackEl.innerHTML = `
-🎉 Bravo !<br><br>
-Votre score de communication hypnotique:
-<strong>${score} / ${quizData.length}</strong>
+  // Affichage fin
+  stepEl.textContent = "🏁 Quiz terminé";
+  patientEl.textContent = "";
 
-<p style="margin-top:20px; line-height:1.7;">
-✅ Langage positif<br>
-✅ Sécurité<br>
-✅ Suggestions indirectes
-</p>
-`;
+  // Nettoyage réponses
+  answersEl.innerHTML = "";
 
-// Nettoyage correction
-correctEl.innerHTML = "";
+  // Nettoyage correction
+  correctEl.innerHTML = "";
 
-// Progression vide
-progressEl.textContent = "";
+  // Progression vide
+  progressEl.textContent = "";
 
-// Masquer bouton suivant
-nextBtn.style.display = "none";
+  // Masquer bouton suivant
+  nextBtn.style.display = "none";
 
-// Mettre score à jour
-scoreEl.textContent = score;
+  // Calcul pourcentage
+  const percentage = Math.round((score / quizData.length) * 100);
 
-// Afficher bouton rejouer
-restartBtn.style.display = "inline-block";
+  // Afficher score
+  scoreEl.innerHTML = `⭐ Score : ${percentage}%`;
+
+  // Message dynamique
+  if (percentage > 90) {
+
+    feedbackEl.innerHTML = `
+    <h2>🎉 Bravo !</h2>
+
+    <p style="margin-top:15px; line-height:1.7;">
+    Excellent travail 👏<br>
+    Vous maîtrisez très bien les bases
+    de la communication hypnotique.
+    </p>
+
+    <p style="margin-top:20px; line-height:1.7;">
+    ✅ Langage positif<br>
+    ✅ Sécurité<br>
+    ✅ Suggestions indirectes
+    </p>
+    `;
+
+  } else {
+
+    feedbackEl.innerHTML = `
+    <h2>💡 Continuez !</h2>
+
+    <p style="margin-top:15px; line-height:1.7;">
+    Vous êtes sur la bonne voie 👍<br>
+    Relancez le quiz pour améliorer
+    vos techniques de communication hypnotique.
+    </p>
+
+    <p style="margin-top:20px; line-height:1.7;">
+    ✅ Langage positif<br>
+    ✅ Sécurité<br>
+    ✅ Suggestions indirectes
+    </p>
+    `;
+
+  }
+
+  // Afficher bouton rejouer
+  restartBtn.style.display = "inline-block";
 }
+
 
 /* =========================
    DEMARRAGE
