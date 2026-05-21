@@ -221,3 +221,24 @@ feedbackEl.textContent = "";
 correctEl.innerHTML = "";
 answersEl.innerHTML = "";
 }
+/*   nouveau popup réponse */
+function showFeedback(isCorrect, explanation) {
+
+  feedbackPopup.style.display = "flex";
+
+  if (isCorrect) {
+
+    feedbackTitle.innerHTML = "✅ Bonne réponse";
+
+  } else {
+
+    feedbackTitle.innerHTML = "❌ Réponse incorrecte";
+
+  }
+
+  feedbackText.innerHTML = `
+    <p style="margin-top:15px; line-height:1.7;">
+      ${explanation}
+    </p>
+  `;
+}
