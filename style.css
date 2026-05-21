@@ -1311,3 +1311,126 @@ body{
     h2 {
   text-shadow: 0 1px 1px rgba(0,0,0,0.04);
     }
+/* =========================
+   QUIZ HYPNOSE
+========================= */
+
+.quiz-section {
+padding: 80px 20px;
+display: flex;
+justify-content: center;
+}
+
+.quiz-box {
+width: 100%;
+max-width: 850px;
+
+background: rgba(255,255,255,0.08);
+backdrop-filter: blur(12px);
+
+border-radius: 28px;
+padding: 40px;
+
+box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+
+color: white;
+}
+
+.quiz-header {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.quiz-header h2 {
+font-size: 2rem;
+margin-bottom: 10px;
+}
+
+#progress {
+opacity: 0.8;
+}
+
+.scenario-card {
+background: rgba(255,255,255,0.06);
+padding: 30px;
+border-radius: 22px;
+margin-bottom: 25px;
+}
+
+.step {
+font-size: 1rem;
+opacity: 0.8;
+margin-bottom: 20px;
+}
+
+.patient {
+font-size: 1.3rem;
+line-height: 1.6;
+margin-bottom: 30px;
+font-style: italic;
+}
+
+.answer-btn {
+width: 100%;
+padding: 18px;
+margin-bottom: 15px;
+
+border: none;
+border-radius: 16px;
+
+background: rgba(255,255,255,0.1);
+
+color: white;
+font-size: 1rem;
+
+cursor: pointer;
+transition: 0.3s;
+}
+
+.answer-btn:hover {
+transform: translateY(-2px);
+background: rgba(255,255,255,0.18);
+}
+
+.answer-btn.correct {
+background: #16a34a;
+}
+
+.answer-btn.wrong {
+background: #dc2626;
+}
+
+.feedback-box {
+text-align: center;
+margin-top: 20px;
+}
+
+#feedback {
+font-size: 1.05rem;
+line-height: 1.6;
+margin-bottom: 20px;
+min-height: 60px;
+}
+
+#nextBtn {
+display: none;
+
+padding: 14px 24px;
+
+border: none;
+border-radius: 14px;
+
+background: linear-gradient(135deg, #2563eb, #1d4ed8);
+
+color: white;
+font-size: 1rem;
+
+cursor: pointer;
+}
+
+.score-box {
+margin-top: 30px;
+text-align: center;
+font-size: 1.2rem;
+font-weight: bold;
+}
