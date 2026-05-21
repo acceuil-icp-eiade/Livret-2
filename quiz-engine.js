@@ -23,15 +23,17 @@ const restartBtn = document.getElementById("restartBtn");
 /* =========================
    AFFICHER QUESTION
 ========================= */
-
 function loadQuestion() {
 
   const q = quizData[currentQuestion];
 
+  if (!q) return;
+
   stepEl.textContent = q.step;
   patientEl.textContent = q.patient;
 
-  progressEl.textContent = `Question ${currentQuestion + 1} / ${quizData.length}`;
+  progressEl.textContent =
+    `Question ${currentQuestion + 1} / ${quizData.length}`;
 
   resetUI();
 
@@ -41,12 +43,14 @@ function loadQuestion() {
     button.classList.add("answer-btn");
     button.textContent = answer.text;
 
-    button.addEventListener("click", () => selectAnswer(button, answer));
+    button.addEventListener("click", () =>
+      selectAnswer(button, answer)
+    );
 
     answersEl.appendChild(button);
-
   });
 }
+
 
 /* =========================
    RESET UI QUESTION
