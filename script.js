@@ -312,3 +312,14 @@ function openDirectory(){
 
 
 loadContacts();
+function openQuiz() {
+
+document.getElementById("quizPopup").style.display = "flex";
+
+}
+
+function closeQuiz() {
+
+document.getElementById("quizPopup").style.display = "none";
+
+}
