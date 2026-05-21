@@ -61,27 +61,37 @@ answersEl.appendChild(button);
 function selectAnswer(button, answer) {
 
 const buttons = document.querySelectorAll(".answer-btn");
-
 buttons.forEach(btn => btn.disabled = true);
 
-if(answer.correct) {
+const q = quizData[currentQuestion];
+
+if (answer.correct) {
 
 button.classList.add("correct");
-
 score++;
-
 scoreEl.textContent = score;
+
+feedbackEl.textContent = "✅ Bonne réponse";
 
 } else {
 
 button.classList.add("wrong");
 
+feedbackEl.textContent = "❌ Mauvaise réponse";
+
+// 👉 AJOUT IMPORTANT
+const correctAnswer = q.answers.find(a => a.correct);
+
+const correctBox = document.createElement("p");
+correctBox.style.marginTop = "10px";
+correctBox.style.color = "green";
+correctBox.textContent =
+"✔ Bonne réponse : " + correctAnswer.text;
+
+feedbackEl.appendChild(correctBox);
 }
 
-feedbackEl.textContent = answer.feedback;
-
 nextBtn.style.display = "inline-block";
-
 }
 
 /* =========================
