@@ -116,29 +116,24 @@ showFinalScreen();
 
 function showFinalScreen() {
 
-document.querySelector(".scenario-card").innerHTML = `
+stepEl.textContent = "🏁 Fin du quiz";
+patientEl.textContent = "";
 
-<h2>🏆 Quiz terminé</h2>
+answersEl.innerHTML = "";
+feedbackEl.textContent = "";
+correctEl.innerHTML = "";
 
-<p style="margin-top:20px;">
-Votre score : ${score} / ${quizData.length}
-</p>
-
-<p style="margin-top:20px; line-height:1.7;">
-✅ Langage positif
-<br>
-✅ Sécurité
-<br>
-✅ Suggestions indirectes
-</p>
-
-`;
-
-feedbackEl.style.display = "none";
+progressEl.textContent = "";
 
 nextBtn.style.display = "none";
 
+// 👉 afficher score propre
+scoreEl.textContent = score;
+
+// 👉 bouton replay
+restartBtn.style.display = "inline-block";
 }
+
 
 /* =========================
    DEMARRAGE
