@@ -161,7 +161,8 @@ function showFinalScreen() {
   if (percentage > 90) {
 
     feedbackEl.innerHTML = `
-    <h2>🎉 Bravo !</h2>
+    <h2 class="bravo-animation">🎉 Bravo !</h2>
+   
 
     <p style="margin-top:15px; line-height:1.7;">
     Excellent travail 👏<br>
