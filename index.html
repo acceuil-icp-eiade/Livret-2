@@ -574,6 +574,18 @@ Question suivante →
 <button id="restartBtn" style="display:none;">
 Rejouer le quiz
 </button>
+    <div class="popup" id="responsePopup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup('responsePopup')">✖</span>
+
+    <p id="feedback"></p>
+    <p id="correct"></p>
+
+    <button onclick="closePopup('responsePopup')">
+      Continuer
+    </button>
+  </div>
+    </div>
 </div>
 
 </div>
