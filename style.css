@@ -1532,3 +1532,10 @@ padding: 20px;
 position: relative;
 
   }
+  function openQuiz() {
+
+alert("popup ouverte");
+
+document.getElementById("quizPopup").style.display = "flex";
+
+}
