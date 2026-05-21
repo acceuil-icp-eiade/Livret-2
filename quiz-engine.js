@@ -51,7 +51,7 @@ button.addEventListener("click", () => selectAnswer(button, answer));
 
 answersEl.appendChild(button);
    resetUI();
-
+));
 }
 
 /* =========================
