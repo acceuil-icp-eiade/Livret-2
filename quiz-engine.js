@@ -35,6 +35,7 @@ progressEl.textContent =
 answersEl.innerHTML = "";
 
 feedbackEl.textContent = "";
+   correctEl.innerHTML = "";
 
 nextBtn.style.display = "none";
 
