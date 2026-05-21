@@ -1600,3 +1600,27 @@ white-space: pre-line;
 
   cursor: pointer;
 }
+.feedback-box {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0,0,0,0.6);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+  z-index: 10;
+}
+
+.feedback-box.show {
+  opacity: 1;
+  pointer-events: all;
+}
+.quiz-box {
+  position: relative;
+}
