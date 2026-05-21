@@ -80,7 +80,7 @@ button.classList.add("wrong");
 
 feedbackEl.textContent = "❌ Mauvaise réponse";
 correctEl.innerHTML =
-`❓ Pourquoi cette réponse n’est pas idéale :<br><br>
+` Pourquoi cette réponse n’est pas idéale? :<br><br>
 ${answer.feedback}
 
 <br><br>
