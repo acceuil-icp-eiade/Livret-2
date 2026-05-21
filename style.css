@@ -1500,5 +1500,7 @@ font-size: 0.95rem;
 }
 
 }
-
+#correct {
+white-space: pre-line;
+}
 
