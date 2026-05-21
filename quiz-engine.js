@@ -127,7 +127,7 @@ answersEl.innerHTML = "";
 // Message final
 feedbackEl.innerHTML = `
 🎉 Bravo !<br><br>
-Votre score final est :
+Votre score de communication hypnotique:
 <strong>${score} / ${quizData.length}</strong>
 
 <p style="margin-top:20px; line-height:1.7;">
