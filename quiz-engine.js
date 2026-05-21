@@ -251,3 +251,5 @@ continueBtn.addEventListener("click", () => {
   showQuestion();
 
 });
+document.querySelector(".feedback-box").classList.add("show");
+document.querySelector(".feedback-box").classList.remove("show");
