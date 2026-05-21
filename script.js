@@ -161,7 +161,13 @@ moveBlob(item);
 });
 
 /* Position initiale */
-moveBlob(document.querySelector(".menu-item.active"));
+
+const activeItem = document.querySelector(".menu-item.active");
+
+if (activeItem) {
+  moveBlob(activeItem);
+}
+
 
 /* effets glissement*/
 
