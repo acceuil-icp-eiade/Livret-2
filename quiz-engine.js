@@ -142,7 +142,19 @@ feedbackEl.textContent =
 // 👉 Afficher bouton rejouer
 restartBtn.style.display = "inline-block";
 }
+restartBtn.addEventListener("click", () => {
 
+currentQuestion = 0;
+score = 0;
+
+scoreEl.textContent = "0";
+feedbackEl.textContent = "";
+correctEl.innerHTML = "";
+
+restartBtn.style.display = "none";
+
+loadQuestion();
+});
 
 /* =========================
    DEMARRAGE
