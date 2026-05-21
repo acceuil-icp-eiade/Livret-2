@@ -117,6 +117,7 @@ const disclaimer = document.getElementById("disclaimer");
 const content = document.getElementById("content");
 disclaimer.classList.remove("show");
 content.classList.remove("hidden");
+  document.querySelector(".bottom-menu").classList.remove("hidden");
 }
 function toggleItem(element) {
 const content = element.querySelector(".content");
