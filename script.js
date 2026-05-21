@@ -315,12 +315,12 @@ function openDirectory(){
 loadContacts();
 
 function openQuiz() {
-
-document
-.getElementById("quizPopup")
-.classList.add("show");
-
+  document.getElementById("quizPopup").classList.add("show");
+  currentQuestion = 0;
+  score = 0;
+  loadQuestion();
 }
+
 
 function closeQuiz() {
 
