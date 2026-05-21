@@ -324,10 +324,4 @@ function closeQuiz() {
 document.getElementById("quizPopup").style.display = "none";
 
 }
-function openQuiz() {
 
-alert("popup ouverte");
-
-document.getElementById("quizPopup").style.display = "flex";
-
-}
