@@ -57,13 +57,13 @@ answersEl.appendChild(button);
 /* =========================
    REPONSE
 ========================= */
+
 function selectAnswer(button, answer) {
 
 const buttons = document.querySelectorAll(".answer-btn");
 buttons.forEach(btn => btn.disabled = true);
 
 const q = quizData[currentQuestion];
-
 const correctAnswer = q.answers.find(a => a.correct);
 
 if (answer.correct) {
@@ -74,6 +74,7 @@ scoreEl.textContent = score;
 
 feedbackEl.textContent = "✅ Bonne réponse";
 
+// 👉 IMPORTANT : reset
 correctEl.innerHTML = "";
 
 } else {
@@ -89,6 +90,8 @@ correctEl.innerHTML =
 
 nextBtn.style.display = "inline-block";
 }
+
+
 
 /* =========================
    QUESTION SUIVANTE
