@@ -86,7 +86,7 @@ ${answer.feedback}
 <br><br>
 
 ✔ Bonne réponse :
-<strong>${correctAnswer.text}</strong>`;
+<strong>${correctAnswer.text}</strong>`;}
 nextBtn.style.display = "inline-block";
 }
 
