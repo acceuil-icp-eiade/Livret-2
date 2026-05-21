@@ -1,347 +1,326 @@
-/* =========================
-UTILS
-========================= */
-
-const $ = (sel) => document.querySelector(sel);
-const $$ = (sel) => document.querySelectorAll(sel);
-
-function show(el) {
-  el?.classList.add("show");
-}
-
-function hide(el) {
-  el?.classList.remove("show");
-}
-
-function toggleHidden(el, state) {
-  el?.classList.toggle("hidden", !state);
-}
-
-
-/* =========================
-SPLASH SCREEN
-========================= */
-
 window.addEventListener("load", () => {
-  setTimeout(() => {
-    $("#splash")?.classList.add("hide");
-  }, 3000);
+
+setTimeout(() => {
+document.getElementById("splash")
+.classList.add("hide");
+}, 3000);
+
 });
-
-
 /* =========================
 LOGIN
 ========================= */
 
 function openLogin() {
-  show($("#loginModal"));
+document.getElementById("loginModal").classList.add("show");
 }
 
 function closeLogin() {
-  hide($("#loginModal"));
+document.getElementById("loginModal").classList.remove("show");
 }
 
 function checkPassword() {
-  const password = $("#password")?.value;
 
-  if (password === "iadeicp543") {
-    closeLogin();
+const password = document.getElementById("password").value;
 
-    $(".hero").style.display = "none";
-    show($("#disclaimer"));
-  } else {
-    $("#error").innerText = "Mot de passe incorrect";
-  }
+if (password === "iadeicp543") {
+
+// ferme popup login
+closeLogin();
+
+// cache le hero
+document.querySelector(".hero").style.display = "none";
+
+// affiche disclaimer
+document.getElementById("disclaimer").classList.add("show");
+
+} else {
+
+document.getElementById("error").innerText =
+"Mot de passe incorrect";
+
+}
 }
 
-
-/* =========================
-HAPTIC FEEDBACK
-========================= */
 
 function softClick() {
-  navigator.vibrate?.(10);
+// vibration mobile (si supporté)
+if (navigator.vibrate) {
+navigator.vibrate(10); // très léger = "soft click"
 }
-
-$$(".btn, .card, .clickable").forEach(el => {
-  el.addEventListener("click", softClick);
+}
+document.querySelectorAll(".btn, .card, .clickable").forEach(el => {
+el.addEventListener("click", () => {
+softClick();
 });
-
-
-/* =========================
-BOTTOM MENU
-========================= */
-
-function toggleBottomMenu(showMenu) {
-  $(".bottom-menu")?.classList.toggle("hidden", !showMenu);
-}
-
-
-/* =========================
-POPUPS SYSTEM
-========================= */
-
+});
 function openPopup(id) {
-  const popup = document.getElementById(id);
+const popup = document.getElementById(id);
+popup.style.display = "flex";
+setTimeout(() => popup.classList.add("show"), 10);
+document.getElementById("bottom-menu").classList.add("hidden");
 
-  popup.style.display = "flex";
-
-  setTimeout(() => popup.classList.add("show"), 10);
-
-  toggleBottomMenu(false);
+document.querySelector(".bottom-menu")?.classList.add("hidden");
 }
 
 function closePopup(id) {
-  const popup = document.getElementById(id);
+const popup = document.getElementById(id);
+popup.classList.remove("show");
 
-  popup.classList.remove("show");
-
-  setTimeout(() => {
-    popup.style.display = "none";
-  }, 300);
-
-  toggleBottomMenu(true);
+setTimeout(() => popup.style.display = "none", 300);
+document.getElementById("bottom-menu").classList.remove("hidden");
+document.querySelector(".bottom-menu")?.classList.remove("hidden");
 }
-
-
-/* =========================
-QUIZ
-========================= */
-
-let currentQuestion = 0;
-let score = 0;
-
-function openQuiz() {
-  const quiz = $("#quizPopup");
-
-  quiz.style.display = "flex";
-
-  setTimeout(() => quiz.classList.add("show"), 10);
-
-  currentQuestion = 0;
-  score = 0;
-  loadQuestion();
-
-  toggleBottomMenu(false);
-}
-
-function closeQuiz() {
-  const quiz = $("#quizPopup");
-
-  quiz.classList.remove("show");
-
-  setTimeout(() => {
-    quiz.style.display = "none";
-  }, 300);
-
-  toggleBottomMenu(true);
-}
-
-
-/* =========================
-MENU SUB TOGGLE
-========================= */
 
 function toggleMenu(id) {
-  $$(".submenu").forEach(menu => {
-    menu.classList.toggle("open", menu.id === id);
-  });
+const menus = document.querySelectorAll(".submenu");
+
+menus.forEach(menu => {
+if (menu.id === id) {
+menu.classList.toggle("open");
+} else {
+menu.classList.remove("open");
 }
-
-
-/* =========================
-VIDEO TOGGLE
-========================= */
+});
+}
 
 function toggleVideo() {
-  const video = $("#videoContainer");
-  const iframe = $("#videoFrame");
-  const button = $("#videoBtn");
+const video = document.getElementById("videoContainer");
+const iframe = document.getElementById("videoFrame");
+const button = document.getElementById("videoBtn");
 
-  if (video.classList.contains("show")) {
-    video.classList.remove("show");
+if (video.classList.contains("show")) {
+video.classList.remove("show");
+setTimeout(() => video.classList.add("hidden"), 400);
+button.innerHTML = "▶️ Voir la visite du bloc";
+} else {
+video.classList.remove("hidden");
+setTimeout(() => video.classList.add("show"), 10);
+button.innerHTML = "❌ Fermer la vidéo";
 
-    setTimeout(() => video.classList.add("hidden"), 400);
-
-    button.innerHTML = "▶️ Voir la visite du bloc";
-  } else {
-    video.classList.remove("hidden");
-
-    setTimeout(() => video.classList.add("show"), 10);
-
-    button.innerHTML = "❌ Fermer la vidéo";
-
-    setTimeout(() => {
-      iframe?.requestFullscreen?.();
-    }, 500);
-  }
+setTimeout(() => {
+if (iframe.requestFullscreen) {
+iframe.requestFullscreen();
+} else if (iframe.webkitRequestFullscreen) {
+iframe.webkitRequestFullscreen();
+} else if (iframe.msRequestFullscreen) {
+iframe.msRequestFullscreen();
+}
+}, 500);
+}
 }
 
-
-/* =========================
-DISCLAIMER
-========================= */
-
 function showDisclaimer() {
-  show($("#disclaimer"));
+document.getElementById("disclaimer").classList.add("show");
 }
 
 function acceptDisclaimer() {
-  hide($("#disclaimer"));
-
-  $("#content")?.classList.remove("hidden");
-
-  toggleBottomMenu(true);
+const disclaimer = document.getElementById("disclaimer");
+const content = document.getElementById("content");
+disclaimer.classList.remove("show");
+content.classList.remove("hidden");
+document.querySelector(".bottom-menu").classList.remove("hidden");
 }
-
-
-/* =========================
-TOGGLE ITEMS
-========================= */
-
 function toggleItem(element) {
-  const content = element.querySelector(".content");
-  content?.classList.toggle("hidden");
-}
-
-
-/* =========================
-ICONS ANIMATION
-========================= */
-
+const content = element.querySelector(".content");
+content.classList.toggle("hidden");
+}window.addEventListener("load", () => {
+setTimeout(() => {
+document.querySelector(".icons")?.classList.add("show");
+}, 800);
+});
 window.addEventListener("load", () => {
-  setTimeout(() => {
-    $(".icons")?.classList.add("show");
-  }, 800);
+setTimeout(() => {
+const icons = document.querySelector(".icons");
+if (icons) {
+icons.classList.add("show");
+}
+}, 800);
 });
 
-
-/* =========================
-MENU BLOB ANIMATION
-========================= */
-
-const items = $$(".menu-item");
-const blob = $(".menu-blob");
+const items = document.querySelectorAll(".menu-item");
+const blob = document.querySelector(".menu-blob");
 
 function moveBlob(item) {
-  if (!item || !blob) return;
-  blob.style.left = item.offsetLeft + "px";
+blob.style.left = item.offsetLeft + "px";
 }
 
 items.forEach(item => {
-  item.addEventListener("click", () => {
-    items.forEach(i => i.classList.remove("active"));
-    item.classList.add("active");
 
-    moveBlob(item);
-  });
-});
+item.addEventListener("click", () => {
 
-moveBlob($(".menu-item.active"));
-
-
-/* =========================
-SECTION SCROLL ANIMATION
-========================= */
-
-const sections = $$("section");
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  },
-  { threshold: 0.15 }
+items.forEach(i =>
+i.classList.remove("active")
 );
 
-sections.forEach(section => observer.observe(section));
+item.classList.add("active");
 
+moveBlob(item);
 
-/* =========================
-SUPABASE
-========================= */
+});
 
+});
+
+/* Position initiale */
+moveBlob(document.querySelector(".menu-item.active"));
+
+/* effets glissement*/
+
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(
+
+entries => {
+
+entries.forEach(entry => {
+
+if (entry.isIntersecting) {
+entry.target.classList.add("show");
+}
+
+});
+
+},
+
+{
+threshold: 0.15
+}
+
+);
+
+sections.forEach(section => {
+observer.observe(section);
+});
 const SUPABASE_URL = "https://dmitkczvdkakkbddhkxj.supabase.co";
 const SUPABASE_KEY = "sb_publishable_paHkYGm6z6ZX4p9GBKIR5A_vkXGqEhN";
 
-const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const client = supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
 
 let contacts = [];
 
 async function loadContacts() {
-  const { data, error } = await client
-    .from("contacts")
-    .select("*")
-    .order("nom");
 
-  if (error) return console.error(error);
+const { data, error } = await client
+.from("contacts")
+.select("*")
+.order("nom");
 
-  contacts = data;
-
-  displayContacts([]);
+if(error){
+console.error(error);
+return;
 }
 
-function displayContacts(data) {
-  const container = $("#contactsList");
+contacts = data;
 
-  if (!container) return;
-
-  container.innerHTML = "";
-
-  if (!data.length) {
-    container.innerHTML = `
-      <div class="empty-search">
-        🔍 Recherchez un contact
-      </div>
-    `;
-    return;
-  }
-
-  container.innerHTML = data.map(contact => `
-    <div class="contact-card">
-      <h3>${contact.nom}</h3>
-      <div class="service">${contact.service}</div>
-      <a class="call-btn" href="tel:${contact.numero}">
-        📞 ${contact.numero}
-      </a>
-    </div>
-  `).join("");
+displayContacts([]);
 }
 
+function displayContacts(data){
 
-/* =========================
-SEARCH INPUT
-========================= */
+const container =
+document.getElementById("contactsList");
 
-$("#searchInput")?.addEventListener("input", (e) => {
-  const search = e.target.value.trim().toLowerCase();
+container.innerHTML = "";
+if(data.length === 0){
 
-  if (!search) return displayContacts([]);
+container.innerHTML = &lt;div class="empty-search"&gt; 🔍 Recherchez un contact &lt;/div&gt;;
 
-  const filtered = contacts.filter(c =>
-    c.nom.toLowerCase().includes(search) ||
-    c.service.toLowerCase().includes(search)
-  );
+return;
+}
+data.forEach(contact => {
 
-  displayContacts(filtered);
+container.innerHTML += `
+<div class="contact-card">
+
+<h3>$`{contact.nom}</h3>
+
+<div class="service">
+`${contact.service}
+</div>
+
+<a
+class="call-btn"
+href="tel: {contact.numero}
+</a>
+
+</div>
+`;
+});
+}
+document
+.getElementById("searchInput")
+.addEventListener("input", (e)=>{
+
+const search =
+e.target.value.trim().toLowerCase();
+
+// si rien écrit → aucun contact
+if(search === ""){
+displayContacts([]);
+return;
+}
+
+const filtered =
+contacts.filter(contact =>
+
+contact.nom
+.toLowerCase()
+.includes(search)
+
+||
+
+contact.service
+.toLowerCase()
+.includes(search)
+);
+
+displayContacts(filtered);
+
 });
 
+function openDirectory(){
 
-/* =========================
-ANNULAIRE NAVIGATION
-========================= */
+const section =
+document.getElementById("annuaireSection");
 
-function openDirectory() {
-  const section = $("#annuaireSection");
+if(section){
 
-  section?.scrollIntoView({ behavior: "smooth" });
+section.scrollIntoView({
+behavior: "smooth"
+});
 
-  setTimeout(() => {
-    $("#searchInput")?.focus();
-  }, 500);
+setTimeout(() => {
+
+const input =
+document.getElementById("searchInput");
+
+if(input){
+input.focus();
 }
 
+}, 500);
+
+}
+
+}
+
+
 loadContacts();
+
+function openQuiz() {
+document.getElementById("quizPopup").classList.add("show");
+currentQuestion = 0;
+score = 0;
+loadQuestion();
+}
+
+
+function closeQuiz() {
+
+document
+.getElementById("quizPopup")
+.classList.remove("show");
+
+}
