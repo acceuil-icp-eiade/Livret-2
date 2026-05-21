@@ -323,7 +323,9 @@ transform: translateY(40px) scale(0.96);
 .popup.show .popup-content {
 animation: iosBounce 0.45s ease-out forwards;
 }
-
+.quiz-popup-content {
+  position: relative;
+}
 /* =========================
 12. CLOSE BUTTON
 ========================= */
@@ -346,6 +348,10 @@ justify-content: center;
 font-size: 18px;
 cursor: pointer;
 }
+  .close-btn {
+  z-index: 10;
+  }
+
 
 .close-btn:hover {
 transform: scale(1.1);
