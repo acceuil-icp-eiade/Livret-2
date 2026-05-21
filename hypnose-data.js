@@ -5,7 +5,7 @@
 const quizData = [
 
 {
-step:" 👋 | WELCOME Accueil au bloc",
+step:" 👋 | Accueil au bloc",
 
 patient: "“J’ai peur de ne pas me réveiller…”",
 
