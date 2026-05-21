@@ -1332,7 +1332,7 @@ padding: 25px;
 
 box-shadow: 0 12px 40px rgba(0,0,0,0.25);
 
-color: white;
+color: #1e293b;
 }
 
 
@@ -1368,6 +1368,8 @@ font-size: 1.3rem;
 line-height: 1.6;
 margin-bottom: 30px;
 font-style: italic;
+color: #334155;
+  
 }
 
 .answer-btn {
@@ -1436,4 +1438,26 @@ box-shadow: 0 0 20px rgba(34,197,94,0.4);
 
 .answer-btn.wrong {
 box-shadow: 0 0 20px rgba(239,68,68,0.4);
+}
+@media (max-width: 768px) {
+
+.quiz-box {
+padding: 18px;
+border-radius: 22px;
+}
+
+.quiz-header h2 {
+font-size: 1.4rem;
+line-height: 1.3;
+}
+
+.patient {
+font-size: 1.05rem;
+}
+
+.answer-btn {
+padding: 14px;
+font-size: 0.95rem;
+}
+
 }
