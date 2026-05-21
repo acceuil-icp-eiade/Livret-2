@@ -20,22 +20,18 @@ const scoreEl = document.getElementById("score");
 /* =========================
    AFFICHER QUESTION
 ========================= */
-
 function loadQuestion() {
 
 const q = quizData[currentQuestion];
 
 stepEl.textContent = q.step;
-
 patientEl.textContent = q.patient;
 
 progressEl.textContent =
 `Question ${currentQuestion + 1} / ${quizData.length}`;
 
-answersEl.innerHTML = "";
-
-feedbackEl.textContent = "";
-   correctEl.innerHTML = "";
+// 👉 reset UNE SEULE FOIS ici
+resetUI();
 
 nextBtn.style.display = "none";
 
@@ -50,8 +46,9 @@ button.textContent = answer.text;
 button.addEventListener("click", () => selectAnswer(button, answer));
 
 answersEl.appendChild(button);
-   resetUI();
-));
+
+});
+
 }
 
 /* =========================
