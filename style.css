@@ -1314,27 +1314,27 @@ body{
 /* =========================
    QUIZ HYPNOSE
 ========================= */
-
 .quiz-section {
-padding: 80px 20px;
+padding: 30px 15px;
 display: flex;
 justify-content: center;
 }
-
 .quiz-box {
 width: 100%;
-max-width: 850px;
+max-width: 700px;
 
 background: rgba(255,255,255,0.08);
 backdrop-filter: blur(12px);
 
 border-radius: 28px;
-padding: 40px;
+
+padding: 25px;
 
 box-shadow: 0 12px 40px rgba(0,0,0,0.25);
 
-color: #f8fafc;
+color: white;
 }
+
 
 .quiz-header {
 text-align: center;
