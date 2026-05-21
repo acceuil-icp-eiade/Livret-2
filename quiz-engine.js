@@ -82,7 +82,7 @@ feedbackEl.textContent = "❌ Mauvaise réponse";
 
 correctEl.innerHTML =
 `✔ Bonne réponse : ${correctAnswer.text}<br><br>
-<strong>Pourquoi :</strong> ${wrongAnswer.feedback}`;
+<strong>Pourquoi :</strong> ${correctAnswer.feedback}`;
 }
 
 nextBtn.style.display = "inline-block";
