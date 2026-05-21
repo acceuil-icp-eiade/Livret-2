@@ -263,6 +263,3 @@ showFinalScreen();
 }
 
 });
-
-
-
