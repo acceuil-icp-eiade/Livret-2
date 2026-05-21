@@ -216,39 +216,47 @@ contacts = data;
 
 displayContacts([]);
 }
+function displayContacts(data) {
 
-function displayContacts(data){
+  const container =
+    document.getElementById("contactsList");
 
-const container =
-document.getElementById("contactsList");
+  container.innerHTML = "";
 
-container.innerHTML = "";
-if(data.length === 0){
+  if (data.length === 0) {
 
-container.innerHTML = &lt;div class="empty-search"&gt; 🔍 Recherchez un contact &lt;/div&gt;;
+    container.innerHTML = `
+      <div class="empty-search">
+        🔍 Recherchez un contact
+      </div>
+    `;
 
-return;
+    return;
+  }
+
+  data.forEach(contact => {
+
+    container.innerHTML += `
+      <div class="contact-card">
+
+        <h3>${contact.nom}</h3>
+
+        <div class="service">
+          ${contact.service}
+        </div>
+
+        <a
+          class="call-btn"
+          href="tel:${contact.numero}"
+        >
+          📞 ${contact.numero}
+        </a>
+
+      </div>
+    `;
+  });
 }
-data.forEach(contact => {
 
-container.innerHTML += `
-<div class="contact-card">
-
-<h3>$`{contact.nom}</h3>
-
-<div class="service">
-`${contact.service}
-</div>
-
-<a
-class="call-btn"
-href="tel: {contact.numero}
-</a>
-
-</div>
-`;
-});
-}
 document
 .getElementById("searchInput")
 .addEventListener("input", (e)=>{
