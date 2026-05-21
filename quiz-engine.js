@@ -17,6 +17,10 @@ const progressEl = document.getElementById("progress");
 
 const scoreEl = document.getElementById("score");
 const restartBtn = document.getElementById("restartBtn");
+const feedbackPopup = document.getElementById("feedbackPopup");
+const feedbackTitle = document.getElementById("feedbackTitle");
+const feedbackText = document.getElementById("feedbackText");
+const continueBtn = document.getElementById("continueBtn");
 /* =========================
    AFFICHER QUESTION
 ========================= */
