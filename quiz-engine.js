@@ -113,24 +113,33 @@ showFinalScreen();
 /* =========================
    FIN QUIZ
 ========================= */
-
 function showFinalScreen() {
 
-stepEl.textContent = "🏁 Fin du quiz";
+// Stop affichage question
+stepEl.textContent = "🏁 Quiz terminé";
 patientEl.textContent = "";
 
+// Nettoyage zone réponses
 answersEl.innerHTML = "";
+
+// Nettoyage feedback
 feedbackEl.textContent = "";
 correctEl.innerHTML = "";
 
+// Progression vide
 progressEl.textContent = "";
 
+// Masquer bouton suivant
 nextBtn.style.display = "none";
 
-// 👉 afficher score propre
+// Afficher score final
 scoreEl.textContent = score;
 
-// 👉 bouton replay
+// 👉 Message final dans la zone de feedback
+feedbackEl.textContent =
+`🎉 Bravo ! Ton score final est ${score} / ${quizData.length}`;
+
+// 👉 Afficher bouton rejouer
 restartBtn.style.display = "inline-block";
 }
 
