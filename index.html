@@ -513,87 +513,86 @@ target="_blank">
 </a>
 </div>
  </div>
+
+
     
-    <div class="card" id="quiz">
+    <!-- =========================
+     CARD QUIZ (bouton lancement)
+========================= -->
+<div class="card" id="quiz">
 
-<h3>🧠 Hypnose conversationnelle</h3>
+  <h3>🧠 Hypnose conversationnelle</h3>
 
-<p>
-      Simulation immersive IADE
-</p>
-    <button onclick="openQuiz()" class="btn">
-  Lancer le quiz
-    </button>
+  <p>Simulation immersive IADE</p>
 
-    </div>
-     
-     <div class="popup" id="quizPopup">
+  <button onclick="openQuiz()" class="btn">
+    Lancer le quiz
+  </button>
 
-<div class="popup-content">
-    
+</div>
+
+<!-- =========================
+     POPUP QUIZ
+========================= -->
+<div class="popup" id="quizPopup">
+
+  <div class="popup-content">
+
     <button class="close-btn" onclick="closePopup('quizPopup')">✖</button>
 
-<section class="quiz-section">
+    <div class="quiz-box">
 
-<div class="quiz-box">
+      <div class="quiz-header">
+        <h2>🧠 Simulation d'hypnose conversationnelle</h2>
+        <p id="progress"></p>
+      </div>
 
-<div class="quiz-header">
+      <div class="scenario-card">
 
-<h2>🧠 Simulation d'hypnose conversationnelle</h2>
+        <p class="step" id="step"></p>
+        <p class="patient" id="patient"></p>
 
-<p id="progress"></p>
+        <div id="answers"></div>
+
+      </div>
+
+      <div class="score-box">
+
+        ⭐ Score : <span id="score">0</span>
+
+        <button id="restartBtn" style="display:none;">
+          Rejouer le quiz
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </div>
 
-<div class="scenario-card">
+<!-- =========================
+     POPUP FEEDBACK (IMPORTANT : séparé)
+========================= -->
+<div class="popup" id="feedbackPopup">
 
-<p class="step" id="step"></p>
-
-<p class="patient" id="patient"></p>
-
-<div id="answers"></div>
-
-</div>
-
-<div class="feedback-box">
-
-<p id="feedback"></p>
-    <p id="correct"></p>
-
-<button id="nextBtn">
-Question suivante →
-</button>
-
-</div>
-
-<div class="score-box">
-
-⭐ Score : <span id="score">0</span>
-    
-<button id="restartBtn" style="display:none;">
-Rejouer le quiz
-</button>
-    <div class="popup" id="responsePopup">
   <div class="popup-content">
-    <span class="close" onclick="closePopup('responsePopup')">✖</span>
 
-    <p id="feedback"></p>
-    <p id="correct"></p>
+    <h3 id="feedbackTitle"></h3>
 
-    <button onclick="closePopup('responsePopup')">
+    <div id="feedbackText"></div>
+
+    <button id="continueBtn">
       Continuer
     </button>
+
   </div>
-    </div>
-</div>
 
 </div>
 
-</section>
-
-</div>
-
-     </div>
+     
+     
 <div>
 <a class="btn bilan" href="pdf/Bilandemistage.pdf" target="_blank">
 ✒️ bilan de demi-stage
