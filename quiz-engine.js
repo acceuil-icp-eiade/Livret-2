@@ -147,5 +147,7 @@ nextBtn.style.display = "none";
 /* =========================
    DEMARRAGE
 ========================= */
+window.addEventListener("DOMContentLoaded", () => {
+  loadQuestion();
+});
 
-loadQuestion();
