@@ -21,7 +21,10 @@ const feedbackPopup = document.getElementById("feedbackPopup");
 const feedbackTitle = document.getElementById("feedbackTitle");
 const feedbackText = document.getElementById("feedbackText");
 const continueBtn = document.getElementById("continueBtn");
-
+const goodSound = document.getElementById("goodSound");
+const badSound = document.getElementById("badSound");
+goodSound.volume = 0.3;
+badSound.volume = 0.3;
 /* =========================
    OUVERTURE QUIZ
 ========================= */
@@ -115,7 +118,8 @@ q.answers.find(a => a.correct);
 let isCorrect = false;
 
 if (answer.correct) {
-
+goodSound.currentTime = 0;
+goodSound.play();
 button.classList.add("correct");
 
 score++;
@@ -125,7 +129,8 @@ scoreEl.textContent = score;
 isCorrect = true;
 
 } else {
-
+badSound.currentTime = 0;
+badSound.play();
 button.classList.add("wrong");
 
 buttons.forEach(btn => {
