@@ -119,7 +119,7 @@ let isCorrect = false;
 
 if (answer.correct) {
 goodSound.currentTime = 0;
-goodSound.play();
+goodSound.play().catch(() => {});
 button.classList.add("correct");
 
 score++;
@@ -129,8 +129,10 @@ scoreEl.textContent = score;
 isCorrect = true;
 
 } else {
+   
 badSound.currentTime = 0;
-badSound.play();
+badSound.play().catch(() => {});
+
 button.classList.add("wrong");
 
 buttons.forEach(btn => {
