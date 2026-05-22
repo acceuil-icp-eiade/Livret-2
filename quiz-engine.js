@@ -303,7 +303,8 @@ restartBtn.style.display = "inline-block";
 ========================= */
 
 restartBtn.addEventListener("click", () => {
-
+document.querySelector(".bottom-menu")
+.style.display = "flex";
 currentQuestion = 0;
 
 score = 0;
