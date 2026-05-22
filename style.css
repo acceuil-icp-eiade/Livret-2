@@ -18,10 +18,14 @@ body {
   padding-bottom: 80px;
 
   font-family: 'SF Pro Display', 'Segoe UI', Arial, sans-serif;
-background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
-url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQkzybd8OvYp44A6yYzKX2PCza2xRHfzAhZVTTKAiQag&s=10');
-background-size: cover;
 
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+  url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQkzybd8OvYp44A6yYzKX2PCza2xRHfzAhZVTTKAiQag&s=10');
+
+  background-size: cover;
+  background-position: center;
+
+  overflow-x: hidden;
 }
 .container {
   padding: 0px;
@@ -746,8 +750,9 @@ transform: translateY(0);
 /* ================
  22.     HERO
 ==================== */
-.hero {
-  height: 100vh;
+
+  .hero {
+  min-height: 100dvh;
 
   position: relative;
   overflow: hidden;
@@ -861,6 +866,8 @@ opacity: 0.7;
 #splash {
   position: fixed;
   inset: 0;
+  width: 100vw;
+height: 100dvh;
 
   background: linear-gradient(135deg, #0f172a, #1e3a8a);
 
@@ -1128,11 +1135,7 @@ footer {
 
 /* annuaire*/
 
-body{
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background:#f4f7fb;
-  padding:20px;
-}
+
 
 .search-box{
   margin-bottom:20px;
