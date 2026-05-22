@@ -58,7 +58,7 @@ feedback: "✅ Bonne validation émotionnelle."
 },
 
 {
-text: "Il ne faut pas penser au pire, çane sert a rien de stresser.",
+text: "Il ne faut pas penser au pire, ça ne sert a rien de stresser.",
 correct: false,
 feedback: "⚠️ Cette réponse minimise l’émotion."
 }
