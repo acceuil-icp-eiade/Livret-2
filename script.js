@@ -320,26 +320,26 @@ input.focus();
 
 }
 loadContacts();
+
+
 function openQuiz() {
 
-  // Ouvre le popup
-  document.getElementById("quizPopup").classList.add("show");
+document.getElementById("quizPopup")
+.classList.add("show");
 
-  // Cache le bottom menu
-  document.getElementById("bottomMenu").style.display = "none";
+/* cacher bottom menu */
+document.querySelector(".bottom-menu")
+.style.display = "none";
 
-  // Lance la première question
-  currentQuestion = 0;
-  score = 0;
-
-  loadQuestion();
 }
 
 function closeQuiz() {
 
-  // Ferme popup
-  document.getElementById("quizPopup").classList.remove("show");
+document.getElementById("quizPopup")
+.classList.remove("show");
 
-  // Réaffiche le menu
-  document.getElementById("bottomMenu").style.display = "flex";
+/* réafficher bottom menu */
+document.querySelector(".bottom-menu")
+.style.display = "flex";
+
 }
