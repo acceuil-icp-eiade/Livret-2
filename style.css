@@ -1624,3 +1624,14 @@ white-space: pre-line;
 .quiz-box {
   position: relative;
 }
+.final-message {
+text-align: center;
+padding: 10px;
+}
+.final-message h2 {
+margin-bottom: 15px;
+}
+
+.final-message p {
+line-height: 1.8;
+}
