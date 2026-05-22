@@ -173,7 +173,8 @@ showFeedback(isCorrect, explanation);
 ========================= */
 
 function showFeedback(isCorrect, explanation) {
-
+document.querySelector(".bottom-menu")
+.style.display = "none";
 feedbackPopup.classList.add("show");
 
 if (isCorrect) {
@@ -223,7 +224,8 @@ showFinalScreen();
 ========================= */
 
 function showFinalScreen() {
-
+document.querySelector(".bottom-menu")
+.style.display = "none";
 resetUI();
 
 stepEl.style.textAlign = "center";
