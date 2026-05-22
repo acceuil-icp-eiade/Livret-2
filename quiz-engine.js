@@ -24,7 +24,7 @@ const continueBtn = document.getElementById("continueBtn");
 const goodSound = document.getElementById("goodSound");
 const badSound = document.getElementById("badSound");
 goodSound.volume = 0.3;
-badSound.volume = 0.3;
+badSound.volume = 0.25;
 /* =========================
    OUVERTURE QUIZ
 ========================= */
