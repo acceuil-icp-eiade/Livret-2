@@ -58,7 +58,7 @@ feedback: "✅ Bonne validation émotionnelle."
 },
 
 {
-text: "Il ne faut pas penser au pire.",
+text: "Il ne faut pas penser au pire, çane sert a rien de stresser.",
 correct: false,
 feedback: "⚠️ Cette réponse minimise l’émotion."
 }
@@ -139,7 +139,7 @@ feedback: "✅ Bonne synchronisation respiratoire."
 },
 
 {
-text: "Ce n’est rien.",
+text: "Ce n’est rien, il ne faut pas paniquer.",
 correct: false,
 feedback: "⚠️ Réponse minimisante."
 },
@@ -195,13 +195,13 @@ patient: "Le patient regarde le masque avec inquiétude.",
 answers: [
 
 {
-text: "Ne bougez pas.",
+text: "Ne bougez pas, le masque doit être étanche.",
 correct: false,
 feedback: "⚠️ Formulation négative."
 },
 
 {
-text: "Ça va piquer un peu.",
+text: "Ça va pincer un peu au niveau du nez.",
 correct: false,
 feedback: "⚠️ Suggestion anxiogène."
 },
@@ -236,7 +236,7 @@ feedback: "⚠️ Formulation autoritaire."
 },
 
 {
-text: "Ne bougez plus.",
+text: "Ne bougez plus, on va commencer.",
 correct: false,
 feedback: "⚠️ Suggestion négative."
 }
@@ -408,7 +408,7 @@ feedback: "✅ Très bonne réorientation."
 },
 
 {
-text: "Réveillez-vous complètement.",
+text: "Réveillez-vous complètement,  on parlera plus tard.",
 correct: false,
 feedback: "⚠️ Trop directif."
 },
@@ -443,7 +443,7 @@ feedback: "⚠️ Formulation autoritaire."
 },
 
 {
-text: "Arrêtez de bouger.",
+text: "Arrêtez de bouger, vous allez tomber.",
 correct: false,
 feedback: "⚠️ Suggestion négative."
 }
