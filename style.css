@@ -767,19 +767,25 @@ transform: translateY(0);
 }
 
 /* IMAGE + ZOOM */
+
 .hero::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -5%;
 
   background:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+    linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.65)),
     url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQkzybd8OvYp44A6yYzKX2PCza2xRHfzAhZVTTKAiQag&s=10');
 
   background-size: cover;
-  background-position: center;
+  background-position: center center;
+  background-repeat: no-repeat;
 
-  animation: slowZoom 25s ease-in-out infinite alternate;
+  transform: scale(1);
+
+  animation:
+    cinematicZoom 28s ease-in-out infinite alternate,
+    cinematicPan 32s ease-in-out infinite alternate;
 
   z-index: -1;
 }
@@ -806,17 +812,30 @@ transform: translateY(0);
 }
 
 /* ANIMATION */
-@keyframes slowZoom {
-  from {
+
+@keyframes cinematicZoom {
+
+  0% {
     transform: scale(1);
   }
 
-  to {
-    transform: scale(1.18);
+  100% {
+    transform: scale(1.12);
   }
+
 }
 
+@keyframes cinematicPan {
 
+  0% {
+    background-position: center center;
+  }
+
+  100% {
+    background-position: center top;
+  }
+
+}
 
 /* BUTTONS */
 .buttons {
