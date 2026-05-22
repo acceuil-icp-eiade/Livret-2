@@ -31,6 +31,10 @@ function openQuiz() {
 document.getElementById("quizPopup")
 .classList.add("show");
 
+/* cacher bottom menu */
+document.querySelector(".bottom-menu")
+.style.display = "none";
+
 }
 
 function closeQuiz() {
@@ -38,7 +42,12 @@ function closeQuiz() {
 document.getElementById("quizPopup")
 .classList.remove("show");
 
+/* réafficher bottom menu */
+document.querySelector(".bottom-menu")
+.style.display = "flex";
+
 }
+
 
 /* =========================
    RESET UI
