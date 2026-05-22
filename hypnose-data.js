@@ -9,7 +9,8 @@ ACCUEIL AU BLOC
 ========================================= */
 
 {
-step:"👋 | Accueil au bloc",
+step: "🛋️ | Accueil patient",
+
 
 patient: "« J’ai peur de ne pas me réveiller… »",
 
@@ -187,7 +188,7 @@ INDUCTION
 ========================================= */
 
 {
-step: "💉 | Avant induction",
+step: "💉 | Induction",
 
 patient: "Le patient regarde le masque avec inquiétude.",
 
@@ -365,7 +366,7 @@ RÉVEIL
 ========================================= */
 
 {
-step: "🌙 | Salle de réveil",
+step: "🌅 | Réveil",
 
 patient: "Le patient ouvre les yeux doucement.",
 
