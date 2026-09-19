@@ -1661,7 +1661,7 @@ line-height: 1.8;
    FOND QUIZ CARDIO-TECH
 ========================= */
 
-.quizPopup-content {
+#quizPopup .popup-content{
   background:
     linear-gradient(
       rgba(10, 32, 100, 0.18),
